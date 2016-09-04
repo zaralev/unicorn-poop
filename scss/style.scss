@@ -1,0 +1,78 @@
+.nav-class {
+    // Utilities
+    position: absolute;
+    left: -100%;
+    top: 0;
+    z-index: 9999;
+    // Size
+    width: 100%;
+    height: 100%;
+    // Style
+    background: orange;
+    padding: 15px;
+    // Transition
+    -webkit-transition: 300ms ease all;
+    -moz-transition: 300ms ease all;
+    -ms-transition: 300ms ease all;
+    -o-transition: 300ms ease all;
+    transition: 300ms ease all;
+}
+
+.show {
+    -webkit-transform: translateX(300px);
+    transform: translateX(300px);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d( 100%,0, 0);
+}
+// Demo Only
+body {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    font-size: 30px;
+}
+
+button {
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+#links {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+
+        li {
+            list-style-type: none;
+            text-align: center;
+        }
+    }
+}
+$color-main: #000;
+
+.gradient2 {
+    color: #fff;
+    font-weight: bold;
+    background-image: linear-gradient(rgba($color-main, 0.5) 0%, rgba($color-main, 0.5) 100%);
+    background-repeat: repeat-y;
+    background-size: 0 0;
+    background-position: 0 65%;
+    transition: 700ms ease;
+
+    &:hover {
+        color: #fff;
+        text-decoration: none;
+        background-image: linear-gradient(rgba($color-main, 1) 0%, rgba($color-main, 1) 100%);
+        background-size: 100% 1em;
+    }
+}
