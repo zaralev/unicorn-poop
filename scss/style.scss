@@ -1,3 +1,35 @@
+$highlight: #d52bff;
+$body: #111;
+$nav: rgba(0, 0, 0, 0.8);
+$old: #670c00;
+$link: #fff;
+$close: #fff;
+$hamburger: #ccc;
+$heading: 'chocolate', Helvetica, sans-serif;
+$bodyfont: 'avenir', Helvetica, sans-serif;
+@font-face {
+    font-family: 'chocolate';
+    src: url('../font/quite_chocolatey.woff2') format('woff2'), url('../font/quite_chocolatey.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'avenir';
+    src: url('../font/avenir.woff2') format('woff2'), url('../font/avenir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'avenirbold';
+    src: url('../font/avenir2.woff2') format('woff2'), url('../font/avenir2.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+b {
+    font-family: 'avenirbold', $bodyfont;
+}
+
 .nav-class {
     // Utilities
     position: absolute;
@@ -8,14 +40,27 @@
     width: 100%;
     height: 100%;
     // Style
-    background: green;
-    padding: 15px;
+    background: $nav;
+    padding: 10px;
     // Transition
     -webkit-transition: 300ms ease all;
     -moz-transition: 300ms ease all;
     -ms-transition: 300ms ease all;
     -o-transition: 300ms ease all;
     transition: 300ms ease all;
+    @media screen and (min-width: 500px) {
+        padding: 10px;
+        transition: 0.3s ease-out;
+    }
+}
+
+.toggle-class {
+    padding: 0;
+    position: absolute;
+    @media screen and (min-width: 500px) {
+        padding: 15px;
+        transition: 0.3s ease-out;
+    }
 }
 
 .show {
@@ -24,12 +69,15 @@
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d( 100%,0, 0);
 }
-// Demo Only
+
 body {
-    background-color: #333;
-    color: #fff;
+    background-color: $body;
+    color: #ccc;
+    font-family: $bodyfont;
     padding: 15px;
     font-size: 30px;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 button {
@@ -46,6 +94,7 @@ button {
     width: 100%;
     margin: auto;
     text-align: center;
+    margin-top: 20vh;
 
     ul {
         margin: 0;
@@ -55,24 +104,227 @@ button {
         li {
             list-style-type: none;
             text-align: center;
+            margin-top: 1em;
         }
     }
+    @media screen and (min-width: 500px) {
+        // margin:0;
+    }
 }
-$color-main: #000;
 
-.gradient2 {
-    color: #fff;
-    font-weight: bold;
-    background-image: linear-gradient(rgba($color-main, 0.5) 0%, rgba($color-main, 0.5) 100%);
+.fa-times {
+    color: $close;
+}
+
+.fa-bars {
+    color: $hamburger;
+}
+
+.gradient {
+    color: $link;
+    font-family: 'avenirbold', $bodyfont;
+    padding: 0.4em 0.2em 0.2em;
+    font-size: 2em;
+    background-image: linear-gradient(rgba($highlight, 0.5) 0%, rgba($highlight, 0.5) 100%);
     background-repeat: repeat-y;
     background-size: 0 0;
     background-position: 0 65%;
-    transition: 700ms ease;
+    transition: 400ms ease;
 
     &:hover {
-        color: #fff;
+        color: $link;
         text-decoration: none;
-        background-image: linear-gradient(rgba($color-main, 1) 0%, rgba($color-main, 1) 100%);
+        background-image: linear-gradient(rgba($highlight, 1) 0%, rgba($highlight, 1) 100%);
+        background-size: 100% 1em;
+    }
+}
+
+.gradient2 {
+    padding: 0.2em;
+    font-size: 2em;
+    font-weight: bold;
+    background-image: linear-gradient(rgba($nav, 0.5) 0%, rgba($nav, 0.5) 100%);
+    background-repeat: repeat-y;
+    background-size: 0 0;
+    background-position: 0 65%;
+    transition: 400ms ease;
+
+    &:hover {
+        text-decoration: none;
+        background-image: linear-gradient(rgba($nav, 1) 0%, rgba($nav, 1) 100%);
+        background-size: 100% 1em;
+    }
+}
+
+#container {
+    font-size: 0.65em;
+    position: relative;
+    top: 5em;
+    padding: 0.8em;
+    transition: 400ms ease-out;
+    line-height: 200%;
+    color: #ccc;
+    @media screen and (min-width:700px) {
+        font-size: 0.6em;
+        width: 60%;
+        margin: auto;
+        padding: 0;
+        top: 5em;
+        line-height: 220%;
+    }
+}
+
+#headername {
+    font-family: $heading;
+    font-size: 12em;
+    color: #d52bff;
+    opacity: 0.7;
+    position: relative;
+    z-index: -1;
+    @media screen and (min-width:500px) {
+        font-size: 15em;
+        top: -0.01em;
+    }
+    @media screen and (min-width:650px) {
+        font-size: 20em;
+        top: -0.01em;
+    }
+    @media screen and (min-width:1200px) {
+        font-size: 30em;
+        top: -0.01em;
+    }
+}
+
+#header {
+    font-family: $heading;
+    position: relative;
+    left: -0.04em;
+    top: -0.1em;
+    font-size: 7em;
+    color: #fbff1f;
+    opacity: 0.7;
+    z-index: -2;
+    @media screen and (min-width:500px) {
+        font-size: 10em;
+        position: relative;
+        top: -0.06em;
+    }
+    @media screen and (min-width:650px) {
+        font-size: 17em;
+        position: relative;
+        top: -0.06em;
+    }
+    @media screen and (min-width:1200px) {
+        font-size: 22em;
+        top: -0.06em;
+    }
+}
+
+#text {
+    position: relative;
+    top: -2em;
+    @media screen and (min-width:1000px) {
+        width: 110%;
+        margin: auto;
+        left: -2em;
+    }
+}
+
+.h1 {
+    position: relative;
+    top: 2em;
+    font-family: 'avenirbold', $bodyfont;
+    border-bottom: 0.3em solid rgba(#d52bff, 0.85);
+    @media screen and (min-width:500px) {
+        top: 0;
+    }
+}
+
+.afterh1 {
+    position: relative;
+    top: 4.5em;
+    @media screen and (min-width:500px) {
+        top: 1em;
+    }
+}
+
+.portfolio {
+    counter-reset: my-badass-counter;
+    position: relative;
+    top: 5em;
+    @media screen and (min-width:500px) {
+        top: 1.2em;
+    }
+
+    dt:before {
+        content: counter(my-badass-counter);
+        counter-increment: my-badass-counter;
+        position: absolute;
+        left: 0;
+        padding-right: 0.5em;
+        padding-top: 0.05em;
+        padding-left: 0.35em;
+        // display:block;
+        font-family: 'avenirbold', $bodyfont;
+        font-size: 2em;
+        background-color: #2f2f2f;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        @media screen and (min-width:500px) {
+            width: 70px;
+            height: 70px;
+            padding-right: 0.5em;
+            padding-top: 0.05em;
+            padding-left: 0.35em;
+        }
+    }
+
+    dt {
+        width: 100%;
+        text-transform: uppercase;
+        font-family: 'avenirbold', $bodyfont;
+        margin-left: 3.5em;
+        a {
+          cursor:pointer;
+          &:hover {
+            opacity:0.8;
+          }
+        }
+        @media screen and (min-width:500px) {
+            font-size: 1.5em;
+            margin-left: 5em;
+        }
+    }
+
+    dd {
+        margin-top: 0.6em;
+        margin-bottom: 3em;
+        margin-left: 4em;
+        font-size: 0.9em;
+        @media screen and (min-width:500px) {
+            font-size: 1em;
+            margin-left: 7.5em;
+            margin-bottom: 5em;
+        }
+    }
+}
+
+
+.portGrad {
+    color: $link;
+    font-family: 'avenirbold', $bodyfont;
+    padding: 0.4em 0.2em 0.2em;
+    background-image: linear-gradient(rgba(#fbff1f, 0.5) 0%, rgba(#fbff1f, 0.5) 100%);
+    background-repeat: repeat-y;
+    background-size: 0 0;
+    background-position: 0 65%;
+    transition: 400ms ease;
+
+    &:hover {
+        color: #111;
+        text-decoration: none;
+        background-image: linear-gradient(rgba(#fbff1f, 1) 0%, rgba(#fbff1f, 1) 100%);
         background-size: 100% 1em;
     }
 }
